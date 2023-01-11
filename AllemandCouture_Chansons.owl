@@ -6,13 +6,37 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://www.semanticweb.org/fabien/ontologies/2022/11/AllemandCouture_Chansons">
-    <Prefix name="" IRI="http://www.semanticweb.org/fabien/ontologies/2022/11/untitled-ontology-6"/>
+    <Prefix name="" IRI="http://www.semanticweb.org/fabien/ontologies/2022/11/AllemandCouture_Chansons"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Import>http://xmlns.com/foaf/0.1/</Import>
+    <Declaration>
+        <Class IRI="#Album"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Allemand"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Americain"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Anglais"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Auteur"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AuteurInterprete"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bassiste"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Batteur"/>
+    </Declaration>
     <Declaration>
         <Class IRI="#Ceremonie"/>
     </Declaration>
@@ -32,16 +56,22 @@
         <Class IRI="#ChansonTypee"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Chanteur"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Compositeur"/>
     </Declaration>
     <Declaration>
         <Class IRI="#CompositeurRock"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Disque"/>
+        <Class IRI="#CompositeurRockSeulement"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Femme"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Francais"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Genre"/>
@@ -53,6 +83,9 @@
         <Class IRI="#GroupeMixte"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Guitariste"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Homme"/>
     </Declaration>
     <Declaration>
@@ -60,6 +93,15 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Interpretes"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Italien"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Japonais"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Joueur_de_cornemuse"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Musicien"/>
@@ -71,28 +113,70 @@
         <Class IRI="#Parolier"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Pianiste"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Recompense"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Role"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Trompetiste"/>
     </Declaration>
     <Declaration>
         <Class IRI="#TypeDeMusique"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Violoniste"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#aAuteur"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#aCompositeur"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#aGenre"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#aGroupe"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#aInterprete"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#aMembre"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#aNationalité"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#aRoleDansGroupe"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#aTypeDeMusique"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Allemand"/>
+        <ObjectProperty IRI="#estAuteurDe"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Americain"/>
+        <ObjectProperty IRI="#estCompositeurDe"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Anglais"/>
+        <ObjectProperty IRI="#estInterpreteDe"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#publiePar"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/membershipClass"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Argent"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Bleach"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Classique"/>
@@ -104,19 +188,19 @@
         <NamedIndividual IRI="#Dubstep"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Francais"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Italien"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Japonais"/>
+        <NamedIndividual IRI="#In_Utero"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Kpop"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Kurt_Cobain"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Metal"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Nirvana"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Or"/>
@@ -134,7 +218,10 @@
         <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://xmlns.com/foaf/0.1/membershipClass"/>
+        <Class IRI="http://xmlns.com/wordnet/1.6/Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://www.w3.org/2000/10/swap/pim/contact#Person"/>
     </Declaration>
     <EquivalentClasses>
         <Class IRI="#Certification"/>
@@ -145,17 +232,44 @@
             <NamedIndividual IRI="#Platine"/>
         </ObjectOneOf>
     </EquivalentClasses>
-    <EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Allemand"/>
         <Class IRI="#Nationalite"/>
-        <ObjectOneOf>
-            <NamedIndividual IRI="#Allemand"/>
-            <NamedIndividual IRI="#Americain"/>
-            <NamedIndividual IRI="#Anglais"/>
-            <NamedIndividual IRI="#Francais"/>
-            <NamedIndividual IRI="#Italien"/>
-            <NamedIndividual IRI="#Japonais"/>
-        </ObjectOneOf>
-    </EquivalentClasses>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Anglais"/>
+        <Class IRI="#Nationalite"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Auteur"/>
+        <Class IRI="#Musicien"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AuteurInterprete"/>
+        <Class IRI="#Musicien"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AuteurInterprete"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#estAuteurDe"/>
+            <Class IRI="#Chanson"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AuteurInterprete"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#estInterpreteDe"/>
+            <Class IRI="#Chanson"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bassiste"/>
+        <Class IRI="#Role"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Batteur"/>
+        <Class IRI="#Role"/>
+    </SubClassOf>
     <SubClassOf>
         <Class IRI="#Ceremonie"/>
         <Class IRI="#Recompense"/>
@@ -208,6 +322,10 @@
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Chanteur"/>
+        <Class IRI="#Role"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Compositeur"/>
         <Class IRI="#Musicien"/>
     </SubClassOf>
@@ -216,8 +334,30 @@
         <Class IRI="#Compositeur"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#CompositeurRock"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#estCompositeurDe"/>
+            <Class IRI="#ChansonRock"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CompositeurRockSeulement"/>
+        <Class IRI="#Compositeur"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CompositeurRockSeulement"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#estCompositeurDe"/>
+            <Class IRI="#ChansonRock"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Femme"/>
         <Class IRI="#Genre"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Francais"/>
+        <Class IRI="#Nationalite"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Groupe"/>
@@ -235,12 +375,48 @@
         <Class IRI="#Groupe"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#GroupeMixte"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#aMembre"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#aGenre"/>
+                <Class IRI="#Femme"/>
+            </ObjectSomeValuesFrom>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GroupeMixte"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#aMembre"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#aGenre"/>
+                <Class IRI="#Homme"/>
+            </ObjectSomeValuesFrom>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Guitariste"/>
+        <Class IRI="#Role"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Homme"/>
         <Class IRI="#Genre"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Interpretes"/>
         <Class IRI="#Musicien"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Italien"/>
+        <Class IRI="#Nationalite"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Japonais"/>
+        <Class IRI="#Nationalite"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Joueur_de_cornemuse"/>
+        <Class IRI="#Role"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Musicien"/>
@@ -250,21 +426,32 @@
         <Class IRI="#Parolier"/>
         <Class IRI="#Musicien"/>
     </SubClassOf>
-    <ClassAssertion>
-        <Class IRI="#Nationalite"/>
-        <NamedIndividual IRI="#Allemand"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Nationalite"/>
-        <NamedIndividual IRI="#Americain"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Nationalite"/>
-        <NamedIndividual IRI="#Anglais"/>
-    </ClassAssertion>
+    <SubClassOf>
+        <Class IRI="#Pianiste"/>
+        <Class IRI="#Role"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Trompetiste"/>
+        <Class IRI="#Role"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Violoniste"/>
+        <Class IRI="#Role"/>
+    </SubClassOf>
     <ClassAssertion>
         <Class IRI="#Certification"/>
         <NamedIndividual IRI="#Argent"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Album"/>
+        <NamedIndividual IRI="#Bleach"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#publiePar"/>
+            <NamedIndividual IRI="#Nirvana"/>
+        </ObjectHasValue>
+        <NamedIndividual IRI="#Bleach"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#TypeDeMusique"/>
@@ -279,24 +466,59 @@
         <NamedIndividual IRI="#Dubstep"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Nationalite"/>
-        <NamedIndividual IRI="#Francais"/>
+        <Class IRI="#Album"/>
+        <NamedIndividual IRI="#In_Utero"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Nationalite"/>
-        <NamedIndividual IRI="#Italien"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Nationalite"/>
-        <NamedIndividual IRI="#Japonais"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#publiePar"/>
+            <NamedIndividual IRI="#Nirvana"/>
+        </ObjectHasValue>
+        <NamedIndividual IRI="#In_Utero"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#TypeDeMusique"/>
         <NamedIndividual IRI="#Kpop"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Musicien"/>
+        <NamedIndividual IRI="#Kurt_Cobain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#aNationalité"/>
+            <Class IRI="#Americain"/>
+        </ObjectSomeValuesFrom>
+        <NamedIndividual IRI="#Kurt_Cobain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#aRoleDansGroupe"/>
+            <Class IRI="#Chanteur"/>
+        </ObjectSomeValuesFrom>
+        <NamedIndividual IRI="#Kurt_Cobain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#aRoleDansGroupe"/>
+            <Class IRI="#Guitariste"/>
+        </ObjectSomeValuesFrom>
+        <NamedIndividual IRI="#Kurt_Cobain"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#aGroupe"/>
+            <NamedIndividual IRI="#Nirvana"/>
+        </ObjectHasValue>
+        <NamedIndividual IRI="#Kurt_Cobain"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#TypeDeMusique"/>
         <NamedIndividual IRI="#Metal"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Groupe"/>
+        <NamedIndividual IRI="#Nirvana"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Certification"/>
@@ -314,16 +536,76 @@
         <Class IRI="#TypeDeMusique"/>
         <NamedIndividual IRI="#Rock"/>
     </ClassAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#publiePar"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#aAuteur"/>
+        <ObjectProperty IRI="#estAuteurDe"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#aCompositeur"/>
+        <ObjectProperty IRI="#estCompositeurDe"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#aInterprete"/>
+        <ObjectProperty IRI="#estInterpreteDe"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#aAuteur"/>
+        <Class IRI="#Chanson"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#aCompositeur"/>
+        <Class IRI="#Chanson"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#aGenre"/>
+        <Class IRI="http://xmlns.com/wordnet/1.6/Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#aGroupe"/>
+        <Class IRI="#Musicien"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#aInterprete"/>
         <Class IRI="#Chanson"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#aMembre"/>
+        <Class IRI="#Groupe"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#aNationalité"/>
+        <Class IRI="http://xmlns.com/wordnet/1.6/Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#aRoleDansGroupe"/>
+        <Class IRI="#Musicien"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#aTypeDeMusique"/>
         <Class IRI="#Chanson"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#publiePar"/>
+        <Class IRI="#Album"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#aInterprete"/>
+        <ObjectProperty IRI="#aAuteur"/>
+        <Class IRI="#Auteur"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#aCompositeur"/>
+        <Class IRI="#Compositeur"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#aGenre"/>
+        <Class IRI="#Genre"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#aGroupe"/>
         <Class IRI="#Groupe"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
@@ -331,8 +613,32 @@
         <Class IRI="#Musicien"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#aMembre"/>
+        <Class IRI="http://www.w3.org/2000/10/swap/pim/contact#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#aNationalité"/>
+        <Class IRI="#Nationalite"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#aRoleDansGroupe"/>
+        <Class IRI="#Groupe"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#aRoleDansGroupe"/>
+        <Class IRI="#Role"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#aTypeDeMusique"/>
         <Class IRI="#TypeDeMusique"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#publiePar"/>
+        <Class IRI="#Groupe"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#publiePar"/>
+        <Class IRI="#Musicien"/>
     </ObjectPropertyRange>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
