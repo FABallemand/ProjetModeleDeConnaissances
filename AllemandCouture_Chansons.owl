@@ -92,10 +92,10 @@
         <Class IRI="#ParticipationDansGroupe"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Recompense"/>
+        <Class IRI="#Role"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Role"/>
+        <Class IRI="#Récompense"/>
     </Declaration>
     <Declaration>
         <Class IRI="#SoloSeulement"/>
@@ -311,6 +311,9 @@
         <NamedIndividual IRI="#Pop"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#PourquoiCaNeFonctionnePas"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Racine_Carré"/>
     </Declaration>
     <Declaration>
@@ -387,6 +390,16 @@
                 <ObjectProperty IRI="#aTypeDeMusique"/>
                 <NamedIndividual IRI="#Rock"/>
             </ObjectHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#ChansonTypee"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Chanson"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#aTypeDeMusique"/>
+                <Class IRI="#TypeDeMusique"/>
+            </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -503,25 +516,25 @@
                 <ObjectIntersectionOf>
                     <ObjectMinCardinality cardinality="2">
                         <ObjectProperty IRI="#aRécompense"/>
-                        <Class IRI="#Recompense"/>
+                        <Class IRI="#Récompense"/>
                     </ObjectMinCardinality>
                     <ObjectMinCardinality cardinality="1">
                         <ObjectProperty IRI="#estInterpreteDe"/>
                         <ObjectSomeValuesFrom>
                             <ObjectProperty IRI="#aRécompense"/>
-                            <Class IRI="#Recompense"/>
+                            <Class IRI="#Récompense"/>
                         </ObjectSomeValuesFrom>
                     </ObjectMinCardinality>
                 </ObjectIntersectionOf>
                 <ObjectMinCardinality cardinality="3">
                     <ObjectProperty IRI="#aRécompense"/>
-                    <Class IRI="#Recompense"/>
+                    <Class IRI="#Récompense"/>
                 </ObjectMinCardinality>
                 <ObjectMinCardinality cardinality="3">
                     <ObjectProperty IRI="#estInterpreteDe"/>
                     <ObjectSomeValuesFrom>
                         <ObjectProperty IRI="#aRécompense"/>
-                        <Class IRI="#Recompense"/>
+                        <Class IRI="#Récompense"/>
                     </ObjectSomeValuesFrom>
                 </ObjectMinCardinality>
             </ObjectUnionOf>
@@ -533,28 +546,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Certification"/>
-        <Class IRI="#Recompense"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Chanson"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#aInterprete"/>
-            <ObjectUnionOf>
-                <Class IRI="#Groupe"/>
-                <Class IRI="#Musicien"/>
-            </ObjectUnionOf>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#ChansonTypee"/>
-        <Class IRI="#Chanson"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#ChansonTypee"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#aTypeDeMusique"/>
-            <Class IRI="#TypeDeMusique"/>
-        </ObjectSomeValuesFrom>
+        <Class IRI="#Récompense"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Compositeur"/>
@@ -562,7 +554,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Cérémonie"/>
-        <Class IRI="#Recompense"/>
+        <Class IRI="#Récompense"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#DansPlusieursGroupes"/>
@@ -650,7 +642,7 @@
         <NamedIndividual IRI="#Alain_Souchon_et_Laurent_Voulzy"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Recompense"/>
+        <Class IRI="#Récompense"/>
         <NamedIndividual IRI="#AlbumDeChansonsDeLAnnee"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -865,7 +857,7 @@
         <NamedIndividual IRI="#Louise_Couture"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Recompense"/>
+        <Class IRI="#Récompense"/>
         <NamedIndividual IRI="#MeilleurCoursDuSemestre"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -917,6 +909,24 @@
     <ClassAssertion>
         <Class IRI="#TypeDeMusique"/>
         <NamedIndividual IRI="#Pop"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Chanson"/>
+        <NamedIndividual IRI="#PourquoiCaNeFonctionnePas"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#aTypeDeMusique"/>
+            <NamedIndividual IRI="#Metal"/>
+        </ObjectHasValue>
+        <NamedIndividual IRI="#PourquoiCaNeFonctionnePas"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#estDansAlbum"/>
+            <NamedIndividual IRI="#WebSémantique"/>
+        </ObjectHasValue>
+        <NamedIndividual IRI="#PourquoiCaNeFonctionnePas"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Album"/>
@@ -1154,6 +1164,12 @@
         <ObjectProperty IRI="#contientChanson"/>
         <ObjectProperty IRI="#estDansAlbum"/>
     </InverseObjectProperties>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#contientChanson"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#estDansAlbum"/>
+    </InverseFunctionalObjectProperty>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#aAuteur"/>
         <Class IRI="#Chanson"/>
@@ -1258,7 +1274,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#aRécompense"/>
-        <Class IRI="#Recompense"/>
+        <Class IRI="#Récompense"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#aTypeDeMusique"/>

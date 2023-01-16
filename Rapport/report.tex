@@ -86,8 +86,8 @@
 }
 
 \fancyhead[L]{ALLEMAND Fabien\\COUTURE Louise}
-\fancyhead[C]{Modèle de Connaissances}
-\fancyhead[R]{\includegraphics[scale=0.08]{img/logo_TPS_1.png}}
+\fancyhead[C]{Modèle de Connaissances\\et Web Sémantique}
+\fancyhead[R]{\includegraphics[scale=0.4]{img/logo_TPS_1.png}}
 \fancyfoot[L]{Rapport de Projet}
 \fancyfoot[R]{\today}
 
@@ -98,7 +98,7 @@
 \begin{center}
 	\baselineskip=50pt
 	\vspace*{1cm}
-	\textbf{{\Huge Modèle de Connaissances}}\\
+	\textbf{{\Huge Modèle de Connaissances\\et Web Sémantique}}\\
 	\vspace*{0.25cm}
 	\textbf{{\Huge Rapport de Projet}}\\
 	\vspace*{0.25cm}
@@ -113,9 +113,40 @@
 
 \begin{figure}[H]
 \centering
-\centerline{\includegraphics[scale=1.]{img/logo_TPS_2.png}}
+\centerline{\includegraphics[scale=2]{img/logo_TPS_2.png}}
 \end{figure}
 
 \newpage
+\section{Construction de l'Ontologie}
+
+L'objectif de ce projet est de créer une ontologie OWL permettant de représenter le plus précisément possible les informations sur des chansons. Pour cela, nous utilisons le logiciel Protégé développé par l'Université de Stanford ainsi que l'ontologie FOAF (Friend Of A Friend) comme base de notre ontologie.\\
+Nous avons tout d'abord créé des classes primitives correspondant aux chansons, aux groupes, aux musiciens (et leurs spécialités) et aux récompenses. Puis nous avons ajoutés diverses classes définies pour répondre à nos besoins.
+
+\begin{figure}[H]
+    \center
+    \includegraphics[scale=.5]{img/chanson.png}
+    \caption{Hiérarchie des chansons}
+\end{figure}
+
+\begin{figure}[H]
+    \center
+    \includegraphics[scale=.5]{img/groupe.png}
+    \caption{Hiérarchie des groupes}
+\end{figure}
+
+\begin{figure}[H]
+    \center
+    \includegraphics[scale=.5]{img/musicien.png}
+    \caption{Hiérarchie des musiciens}
+\end{figure}
+
+\begin{figure}[H]
+    \center
+    \includegraphics[scale=.5]{img/recompense.png}
+    \caption{Hiérarchie des récompenses}
+\end{figure}
+
+\newpage
+\section{Interrogation de l'Ontologie}
 
 \end{document}
