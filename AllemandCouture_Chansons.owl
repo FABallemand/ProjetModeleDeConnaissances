@@ -197,6 +197,12 @@
         <DataProperty IRI="#aPrénom"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#aTitre"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#aTitreChanson"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Abba"/>
     </Declaration>
     <Declaration>
@@ -1335,6 +1341,11 @@
         <Literal>Nirvana</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#aTitre"/>
+        <NamedIndividual IRI="#PourquoiCaNeFonctionnePas"/>
+        <Literal>WTF</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#aDatePublication"/>
         <NamedIndividual IRI="#Racine_Carré"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2014</Literal>
@@ -1363,6 +1374,21 @@
         <DataProperty IRI="#aDateFin"/>
         <NamedIndividual IRI="#SDIA_LC"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2024</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aTitre"/>
+        <NamedIndividual IRI="#Smells_Like_Teen_Spirit"/>
+        <Literal>Smells Like Teen Spirit</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aTitreChanson"/>
+        <NamedIndividual IRI="#Smells_Like_Teen_Spirit"/>
+        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">Smells</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aTitre"/>
+        <NamedIndividual IRI="#TheFundamentalMatrixSong"/>
+        <Literal>The Fundamental Matrix Song</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#aDatePublication"/>
@@ -1561,6 +1587,14 @@
         <DataProperty IRI="#aPrénom"/>
         <Class IRI="#Musicien"/>
     </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#aTitre"/>
+        <Class IRI="#Chanson"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#aTitreChanson"/>
+        <Class IRI="#Chanson"/>
+    </DataPropertyDomain>
     <DataPropertyRange>
         <DataProperty IRI="#aDateDébut"/>
         <Datatype abbreviatedIRI="xsd:int"/>
@@ -1588,6 +1622,14 @@
     <DataPropertyRange>
         <DataProperty IRI="#aPrénom"/>
         <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#aTitre"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#aTitreChanson"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
     </DataPropertyRange>
     <DLSafeRule>
         <Annotation>
