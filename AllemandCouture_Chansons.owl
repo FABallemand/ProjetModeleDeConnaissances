@@ -200,6 +200,9 @@
         <NamedIndividual IRI="#Abba"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Abba_AF"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Agnetha_Faltskog"/>
     </Declaration>
     <Declaration>
@@ -378,6 +381,9 @@
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
     </Declaration>
     <EquivalentClasses>
         <Class IRI="#AuteurInterprete"/>
@@ -625,14 +631,11 @@
         <NamedIndividual IRI="#Abba"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Musicien"/>
-        <NamedIndividual IRI="#Agnetha_Faltskog"/>
+        <Class IRI="#ParticipationDansGroupe"/>
+        <NamedIndividual IRI="#Abba_AF"/>
     </ClassAssertion>
     <ClassAssertion>
-        <ObjectHasValue>
-            <ObjectProperty IRI="#aGenre"/>
-            <NamedIndividual IRI="#Femme"/>
-        </ObjectHasValue>
+        <Class IRI="#Musicien"/>
         <NamedIndividual IRI="#Agnetha_Faltskog"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -774,13 +777,6 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#ParticipationDansGroupe"/>
-        <NamedIndividual IRI="#IR_FA"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <ObjectHasValue>
-            <ObjectProperty IRI="#aRoleDansGroupe"/>
-            <NamedIndividual IRI="#Chanteur"/>
-        </ObjectHasValue>
         <NamedIndividual IRI="#IR_FA"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -994,6 +990,21 @@
         <NamedIndividual IRI="#WebSémantique"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aGroupe"/>
+        <NamedIndividual IRI="#Abba_AF"/>
+        <NamedIndividual IRI="#Abba"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aGenre"/>
+        <NamedIndividual IRI="#Agnetha_Faltskog"/>
+        <NamedIndividual IRI="#Femme"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#participeDansGroupe"/>
+        <NamedIndividual IRI="#Agnetha_Faltskog"/>
+        <NamedIndividual IRI="#Abba_AF"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#publiePar"/>
         <NamedIndividual IRI="#Bleach"/>
         <NamedIndividual IRI="#Nirvana"/>
@@ -1032,6 +1043,21 @@
         <ObjectProperty IRI="#aRécompense"/>
         <NamedIndividual IRI="#IR"/>
         <NamedIndividual IRI="#MeilleurGroupeInfo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aGroupe"/>
+        <NamedIndividual IRI="#IR_FA"/>
+        <NamedIndividual IRI="#IR"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aMusicien"/>
+        <NamedIndividual IRI="#IR_FA"/>
+        <NamedIndividual IRI="#Fabien_Allemand"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aRoleDansGroupe"/>
+        <NamedIndividual IRI="#IR_FA"/>
+        <NamedIndividual IRI="#Chanteur"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#publiePar"/>
@@ -1563,6 +1589,77 @@
         <DataProperty IRI="#aPrénom"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Nombre de fois où une femme joue dans un groupe</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S2</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Musicien"/>
+                <Variable IRI="#m"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#aGenre"/>
+                <Variable IRI="#m"/>
+                <NamedIndividual IRI="#Femme"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#participeDansGroupe"/>
+                <Variable IRI="#m"/>
+                <Variable IRI="#g"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <BuiltInAtom IRI="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#count">
+                <Variable IRI="#g"/>
+            </BuiltInAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Nom musicien et du groupe</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S1</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Musicien"/>
+                <Variable IRI="#m"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#participeDansGroupe"/>
+                <Variable IRI="#m"/>
+                <Variable IRI="#p"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#aGroupe"/>
+                <Variable IRI="#p"/>
+                <Variable IRI="#g"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <BuiltInAtom IRI="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#select">
+                <Variable IRI="#m"/>
+                <Variable IRI="#g"/>
+            </BuiltInAtom>
+        </Head>
+    </DLSafeRule>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
         <IRI>#Groupe</IRI>

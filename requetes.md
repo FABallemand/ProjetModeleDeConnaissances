@@ -17,7 +17,7 @@ WHERE { ?titre rdf:type ch:Chanson .
         ?titre ch:aInterprete ?gom 
 	    OPTIONAL { ?titre ch:aTypeDeMusique ?type } }
 
-1. [OK]
+2. [OK]
 SELECT ?a
     WHERE { ?a ch:contientChanson ch:Smells_Like_Teen_Spirit }
 
@@ -70,15 +70,21 @@ WHERE { ?gom ch:aRécompense ?r .
         FILTER (?a = 2022 || ?a = 2023)
 }
 
-1. [OK]
+7. [OK]
 SELECT ?g (count(distinct ?a) as ?count)
 WHERE {?a rdf:type ch:Album .
        ?g ch:aPublié ?a }
 GROUP BY (?g)
 HAVING (?count < 4)
 
-1. [OK]
+8. [OK]
 SELECT ?n
 WHERE { ?m ch:aNom ?n .
         FILTER regex(?n, "^c", "i")} # "^c": commence par c | "i": Insensible à la casse
 ORDER BY ?n
+
+9. [OK]
+Musicien(?m) ^ participeDansGroupe(?m, ?p) ^ aGroupe(?p, ?g) -> sqwrl:select(?m, ?g)
+
+10. [OK]
+Musicien(?m) ^ aGenre(?m, Femme) ^ participeDansGroupe(?m, ?g) -> sqwrl:count(?g)
