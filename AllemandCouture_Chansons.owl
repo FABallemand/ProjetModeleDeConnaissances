@@ -89,6 +89,9 @@
         <Class IRI="#Parolier"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#ParticipationDansGroupe"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Recompense"/>
     </Declaration>
     <Declaration>
@@ -128,10 +131,16 @@
         <ObjectProperty IRI="#aMembre"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#aMusicien"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#aNationalité"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#aPublié"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#aRole"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#aRoleDansGroupe"/>
@@ -158,10 +167,19 @@
         <ObjectProperty IRI="#estInterpreteDe"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#participeDansGroupe"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#publiePar"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="http://xmlns.com/foaf/0.1/membershipClass"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#aDateDébut"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#aDateFin"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#aDatePublication"/>
@@ -300,6 +318,12 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#SDIA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SDIA_FA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SDIA_LC"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Smells_Like_Teen_Spirit"/>
@@ -590,13 +614,6 @@
         <NamedIndividual IRI="#Agnetha_Faltskog"/>
     </ClassAssertion>
     <ClassAssertion>
-        <ObjectHasValue>
-            <ObjectProperty IRI="#aGroupe"/>
-            <NamedIndividual IRI="#Abba"/>
-        </ObjectHasValue>
-        <NamedIndividual IRI="#Agnetha_Faltskog"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Musicien"/>
         <NamedIndividual IRI="#Alain_Souchon"/>
     </ClassAssertion>
@@ -668,13 +685,6 @@
         <NamedIndividual IRI="#Benny_Andersson"/>
     </ClassAssertion>
     <ClassAssertion>
-        <ObjectHasValue>
-            <ObjectProperty IRI="#aGroupe"/>
-            <NamedIndividual IRI="#Abba"/>
-        </ObjectHasValue>
-        <NamedIndividual IRI="#Benny_Andersson"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Album"/>
         <NamedIndividual IRI="#Bleach"/>
     </ClassAssertion>
@@ -705,13 +715,6 @@
         <NamedIndividual IRI="#Dave_Grohl"/>
     </ClassAssertion>
     <ClassAssertion>
-        <ObjectHasValue>
-            <ObjectProperty IRI="#aRoleDansGroupe"/>
-            <NamedIndividual IRI="#Batteur"/>
-        </ObjectHasValue>
-        <NamedIndividual IRI="#Dave_Grohl"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Certification"/>
         <NamedIndividual IRI="#Diamant"/>
     </ClassAssertion>
@@ -728,13 +731,6 @@
     </ClassAssertion>
     <ClassAssertion>
         <ObjectHasValue>
-            <ObjectProperty IRI="#aGroupe"/>
-            <NamedIndividual IRI="#SDIA"/>
-        </ObjectHasValue>
-        <NamedIndividual IRI="#Fabien_Allemand"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <ObjectHasValue>
             <ObjectProperty IRI="#aNationalité"/>
             <NamedIndividual IRI="#Francais"/>
         </ObjectHasValue>
@@ -742,8 +738,8 @@
     </ClassAssertion>
     <ClassAssertion>
         <ObjectHasValue>
-            <ObjectProperty IRI="#aRoleDansGroupe"/>
-            <NamedIndividual IRI="#JoueurDeCornemuse"/>
+            <ObjectProperty IRI="#aRole"/>
+            <NamedIndividual IRI="#Trompettiste"/>
         </ObjectHasValue>
         <NamedIndividual IRI="#Fabien_Allemand"/>
     </ClassAssertion>
@@ -751,6 +747,13 @@
         <ObjectHasValue>
             <ObjectProperty IRI="#estInterpreteDe"/>
             <NamedIndividual IRI="#WebSémantique"/>
+        </ObjectHasValue>
+        <NamedIndividual IRI="#Fabien_Allemand"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#participeDansGroupe"/>
+            <NamedIndividual IRI="#SDIA_FA"/>
         </ObjectHasValue>
         <NamedIndividual IRI="#Fabien_Allemand"/>
     </ClassAssertion>
@@ -801,41 +804,13 @@
         <NamedIndividual IRI="#Krist_Novoselic"/>
     </ClassAssertion>
     <ClassAssertion>
-        <ObjectHasValue>
-            <ObjectProperty IRI="#aRoleDansGroupe"/>
-            <NamedIndividual IRI="#Bassiste"/>
-        </ObjectHasValue>
-        <NamedIndividual IRI="#Krist_Novoselic"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Musicien"/>
-        <NamedIndividual IRI="#Kurt_Cobain"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <ObjectHasValue>
-            <ObjectProperty IRI="#aGroupe"/>
-            <NamedIndividual IRI="#Nirvana"/>
-        </ObjectHasValue>
         <NamedIndividual IRI="#Kurt_Cobain"/>
     </ClassAssertion>
     <ClassAssertion>
         <ObjectHasValue>
             <ObjectProperty IRI="#aNationalité"/>
             <NamedIndividual IRI="#Américain"/>
-        </ObjectHasValue>
-        <NamedIndividual IRI="#Kurt_Cobain"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <ObjectHasValue>
-            <ObjectProperty IRI="#aRoleDansGroupe"/>
-            <NamedIndividual IRI="#Chanteur"/>
-        </ObjectHasValue>
-        <NamedIndividual IRI="#Kurt_Cobain"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <ObjectHasValue>
-            <ObjectProperty IRI="#aRoleDansGroupe"/>
-            <NamedIndividual IRI="#Guitariste"/>
         </ObjectHasValue>
         <NamedIndividual IRI="#Kurt_Cobain"/>
     </ClassAssertion>
@@ -870,13 +845,6 @@
     </ClassAssertion>
     <ClassAssertion>
         <ObjectHasValue>
-            <ObjectProperty IRI="#aGroupe"/>
-            <NamedIndividual IRI="#SDIA"/>
-        </ObjectHasValue>
-        <NamedIndividual IRI="#Louise_Couture"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <ObjectHasValue>
             <ObjectProperty IRI="#aNationalité"/>
             <NamedIndividual IRI="#Francais"/>
         </ObjectHasValue>
@@ -884,15 +852,15 @@
     </ClassAssertion>
     <ClassAssertion>
         <ObjectHasValue>
-            <ObjectProperty IRI="#aRoleDansGroupe"/>
-            <NamedIndividual IRI="#Pianiste"/>
+            <ObjectProperty IRI="#estInterpreteDe"/>
+            <NamedIndividual IRI="#WebSémantique"/>
         </ObjectHasValue>
         <NamedIndividual IRI="#Louise_Couture"/>
     </ClassAssertion>
     <ClassAssertion>
         <ObjectHasValue>
-            <ObjectProperty IRI="#estInterpreteDe"/>
-            <NamedIndividual IRI="#WebSémantique"/>
+            <ObjectProperty IRI="#participeDansGroupe"/>
+            <NamedIndividual IRI="#SDIA_LC"/>
         </ObjectHasValue>
         <NamedIndividual IRI="#Louise_Couture"/>
     </ClassAssertion>
@@ -939,13 +907,6 @@
         <NamedIndividual IRI="#Pat_Smear"/>
     </ClassAssertion>
     <ClassAssertion>
-        <ObjectHasValue>
-            <ObjectProperty IRI="#aRoleDansGroupe"/>
-            <NamedIndividual IRI="#Guitariste"/>
-        </ObjectHasValue>
-        <NamedIndividual IRI="#Pat_Smear"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Role"/>
         <NamedIndividual IRI="#Pianiste"/>
     </ClassAssertion>
@@ -982,6 +943,42 @@
     <ClassAssertion>
         <Class IRI="#Groupe"/>
         <NamedIndividual IRI="#SDIA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ParticipationDansGroupe"/>
+        <NamedIndividual IRI="#SDIA_FA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#aGroupe"/>
+            <NamedIndividual IRI="#SDIA"/>
+        </ObjectHasValue>
+        <NamedIndividual IRI="#SDIA_FA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#aRoleDansGroupe"/>
+            <NamedIndividual IRI="#JoueurDeCornemuse"/>
+        </ObjectHasValue>
+        <NamedIndividual IRI="#SDIA_FA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ParticipationDansGroupe"/>
+        <NamedIndividual IRI="#SDIA_LC"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#aGroupe"/>
+            <NamedIndividual IRI="#SDIA"/>
+        </ObjectHasValue>
+        <NamedIndividual IRI="#SDIA_LC"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#aRoleDansGroupe"/>
+            <NamedIndividual IRI="#Pianiste"/>
+        </ObjectHasValue>
+        <NamedIndividual IRI="#SDIA_LC"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Chanson"/>
@@ -1073,7 +1070,7 @@
     <DataPropertyAssertion>
         <DataProperty IRI="#aDatePublication"/>
         <NamedIndividual IRI="#Alain_Souchon_et_Laurent_Voulzy"/>
-        <Literal>2015</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2015</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#aNom"/>
@@ -1093,17 +1090,37 @@
     <DataPropertyAssertion>
         <DataProperty IRI="#aDatePublication"/>
         <NamedIndividual IRI="#Racine_Carré"/>
-        <Literal>2014</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#aDatePublication"/>
-        <NamedIndividual IRI="#SDIA"/>
-        <Literal>2022</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2014</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#aNomDeGroupe"/>
         <NamedIndividual IRI="#SDIA"/>
         <Literal>SDIA - Science des Données et Intelligence Artificielle</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aDateDébut"/>
+        <NamedIndividual IRI="#SDIA_FA"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2022</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aDateFin"/>
+        <NamedIndividual IRI="#SDIA_FA"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2024</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aDateDébut"/>
+        <NamedIndividual IRI="#SDIA_LC"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2022</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aDateFin"/>
+        <NamedIndividual IRI="#SDIA_LC"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2024</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aDatePublication"/>
+        <NamedIndividual IRI="#WebSémantique"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2023</Literal>
     </DataPropertyAssertion>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#publiePar"/>
@@ -1124,6 +1141,10 @@
     <InverseObjectProperties>
         <ObjectProperty IRI="#aInterprete"/>
         <ObjectProperty IRI="#estInterpreteDe"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#aMusicien"/>
+        <ObjectProperty IRI="#participeDansGroupe"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#aPublié"/>
@@ -1147,7 +1168,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#aGroupe"/>
-        <Class IRI="#Musicien"/>
+        <Class IRI="#ParticipationDansGroupe"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#aInterprete"/>
@@ -1165,8 +1186,12 @@
         <Class IRI="http://xmlns.com/wordnet/1.6/Person"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#aRoleDansGroupe"/>
+        <ObjectProperty IRI="#aRole"/>
         <Class IRI="#Musicien"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#aRoleDansGroupe"/>
+        <Class IRI="#ParticipationDansGroupe"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#aRécompense"/>
@@ -1183,6 +1208,10 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#estDansAlbum"/>
         <Class IRI="#Chanson"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#participeDansGroupe"/>
+        <Class IRI="#Musicien"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#publiePar"/>
@@ -1213,11 +1242,15 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#aMembre"/>
-        <Class IRI="http://www.w3.org/2000/10/swap/pim/contact#Person"/>
+        <Class IRI="#ParticipationDansGroupe"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#aNationalité"/>
         <Class IRI="#Nationalité"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#aRole"/>
+        <Class IRI="#Role"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#aRoleDansGroupe"/>
@@ -1236,12 +1269,24 @@
         <Class IRI="#Album"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#participeDansGroupe"/>
+        <Class IRI="#ParticipationDansGroupe"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#publiePar"/>
         <ObjectUnionOf>
             <Class IRI="#Groupe"/>
             <Class IRI="#Musicien"/>
         </ObjectUnionOf>
     </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#aDateDébut"/>
+        <Class IRI="#ParticipationDansGroupe"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#aDateFin"/>
+        <Class IRI="#ParticipationDansGroupe"/>
+    </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#aDatePublication"/>
         <Class IRI="#Album"/>
@@ -1259,8 +1304,16 @@
         <Class IRI="#Musicien"/>
     </DataPropertyDomain>
     <DataPropertyRange>
+        <DataProperty IRI="#aDateDébut"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#aDateFin"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
         <DataProperty IRI="#aDatePublication"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#aNom"/>
