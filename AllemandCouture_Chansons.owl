@@ -200,9 +200,6 @@
         <DataProperty IRI="#aTitre"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#aTitreChanson"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#Abba"/>
     </Declaration>
     <Declaration>
@@ -1381,11 +1378,6 @@
         <Literal>Smells Like Teen Spirit</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="#aTitreChanson"/>
-        <NamedIndividual IRI="#Smells_Like_Teen_Spirit"/>
-        <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">Smells</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
         <DataProperty IRI="#aTitre"/>
         <NamedIndividual IRI="#TheFundamentalMatrixSong"/>
         <Literal>The Fundamental Matrix Song</Literal>
@@ -1591,10 +1583,6 @@
         <DataProperty IRI="#aTitre"/>
         <Class IRI="#Chanson"/>
     </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#aTitreChanson"/>
-        <Class IRI="#Chanson"/>
-    </DataPropertyDomain>
     <DataPropertyRange>
         <DataProperty IRI="#aDateDébut"/>
         <Datatype abbreviatedIRI="xsd:int"/>
@@ -1627,10 +1615,52 @@
         <DataProperty IRI="#aTitre"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#aTitreChanson"/>
-        <Datatype abbreviatedIRI="rdfs:Literal"/>
-    </DataPropertyRange>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal></Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>S3</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Musicien"/>
+                <Variable IRI="#m"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#participeDansGroupe"/>
+                <Variable IRI="#m"/>
+                <Variable IRI="#p"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#aGroupe"/>
+                <Variable IRI="#p"/>
+                <Variable IRI="#g"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#aNom"/>
+                <Variable IRI="#m"/>
+                <Variable IRI="#n"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#aNomDeGroupe"/>
+                <Variable IRI="#g"/>
+                <Variable IRI="#ng"/>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <BuiltInAtom IRI="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#select">
+                <Variable IRI="#n"/>
+                <Variable IRI="#ng"/>
+            </BuiltInAtom>
+        </Head>
+    </DLSafeRule>
     <DLSafeRule>
         <Annotation>
             <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
