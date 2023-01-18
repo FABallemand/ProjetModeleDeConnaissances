@@ -6,6 +6,9 @@
 PREFIX ch: <http://www.semanticweb.org/fabien/ontologies/2022/11/AllemandCouture_Chansons#>
 ```
 
+**Remarque:** Pour être sûr que toutes les requêtes possibles (autres que celles demandées) fonctionnent, il faut renseigner correctement toutes les **Object property assertions** et les **Data property assertion** pour chaque individu. (Attention: SPARQL ne lance pas le raisonneur donc il faut renseigner manuellement toutes les relations même celles qui sont l'inverse d'une relation).
+Ce n'est pas toujours bien fait dans notre ontologie... 🤭
+
 1. [OK]  
 Uniquement les chansons dans un album:
 ```
