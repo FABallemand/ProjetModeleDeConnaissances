@@ -2,8 +2,8 @@
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <uri id="Imports Wizard Entry" name="http://xmlns.com/foaf/0.1/" uri="http://xmlns.com/foaf/0.1/index.rdf"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1673893413986" name="http://www.semanticweb.org/fabien/ontologies/2022/11/AllemandCouture_Chansons" uri="AllemandCouture_Chansons.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1673893413986" name="http://xmlns.com/foaf/0.1/" uri="foaf.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1673893413986" name="shadowed:http://www.semanticweb.org/fabien/ontologies/2022/11/AllemandCouture_Chansons" uri="backup/AllemandCouture_Chansons_backup.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1674036364492" name="http://www.semanticweb.org/fabien/ontologies/2022/11/AllemandCouture_Chansons" uri="AllemandCouture_Chansons.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1674036364492" name="http://xmlns.com/foaf/0.1/" uri="foaf.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1674036364492" name="shadowed:http://www.semanticweb.org/fabien/ontologies/2022/11/AllemandCouture_Chansons" uri="backup/AllemandCouture_Chansons.owl"/>
     </group>
 </catalog>
