@@ -1018,11 +1018,6 @@
         <NamedIndividual IRI="#Femme"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#aGroupe"/>
-        <NamedIndividual IRI="#Agnetha_Faltskog"/>
-        <NamedIndividual IRI="#Abba"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#aGenre"/>
         <NamedIndividual IRI="#Alain_Souchon"/>
         <NamedIndividual IRI="#Homme"/>

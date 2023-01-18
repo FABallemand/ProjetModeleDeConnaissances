@@ -6,5 +6,5 @@ Construction d'une ontologie OWL représentant des informations sur des chansons
 
 ## Equipe
 
--ALLEMAND Fabien  
--COUTURE Louise
+- ALLEMAND Fabien  
+- COUTURE Louise
