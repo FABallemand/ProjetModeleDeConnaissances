@@ -929,9 +929,19 @@
         <NamedIndividual IRI="#Francais"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aPublié"/>
+        <NamedIndividual IRI="#Alain_Souchon"/>
+        <NamedIndividual IRI="#Alain_Souchon_et_Laurent_Voulzy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#aRécompense_Artiste"/>
         <NamedIndividual IRI="#Alain_Souchon"/>
         <NamedIndividual IRI="#Alain_Voulzy_ACA_2015"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aRécompense_Artiste"/>
+        <NamedIndividual IRI="#Alain_Souchon"/>
+        <NamedIndividual IRI="#Alain_Voulzy_MIMA_2015"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#publiePar"/>
@@ -1054,6 +1064,11 @@
         <NamedIndividual IRI="#Guitariste"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aMembre"/>
+        <NamedIndividual IRI="#IR"/>
+        <NamedIndividual IRI="#IR_FA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#aGroupe"/>
         <NamedIndividual IRI="#IR_FA"/>
         <NamedIndividual IRI="#IR"/>
@@ -1114,9 +1129,19 @@
         <NamedIndividual IRI="#Francais"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aPublié"/>
+        <NamedIndividual IRI="#Laurent_Voulzy"/>
+        <NamedIndividual IRI="#Alain_Souchon_et_Laurent_Voulzy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#aRécompense_Artiste"/>
         <NamedIndividual IRI="#Laurent_Voulzy"/>
         <NamedIndividual IRI="#Alain_Voulzy_ACA_2015"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aRécompense_Artiste"/>
+        <NamedIndividual IRI="#Laurent_Voulzy"/>
+        <NamedIndividual IRI="#Alain_Voulzy_MIMA_2015"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#aGenre"/>
@@ -1339,6 +1364,11 @@
         <NamedIndividual IRI="#Stromae_Diamant_2014"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aRécompense_Artiste"/>
+        <NamedIndividual IRI="#Stromae"/>
+        <NamedIndividual IRI="#Stromae_MIMA_2014"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#estInterpreteDe"/>
         <NamedIndividual IRI="#Stromae"/>
         <NamedIndividual IRI="#Racine_Carré"/>
@@ -1361,7 +1391,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#aRécompense"/>
         <NamedIndividual IRI="#Stromae_Diamant_2014"/>
-        <NamedIndividual IRI="#MeilleurInterprèteMasculinDeLAnnée"/>
+        <NamedIndividual IRI="#Diamant"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#artisteRécompensé"/>
@@ -1532,6 +1562,11 @@
         <DataProperty IRI="#aNomRécompense"/>
         <NamedIndividual IRI="#MeilleurInterprèteMasculinDeLAnnée"/>
         <Literal>Meilleur interprète masculin de l&apos;année</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aTitre"/>
+        <NamedIndividual IRI="#Never_Mind"/>
+        <Literal>Never Mind</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#aNomDeGroupe"/>
@@ -1854,7 +1889,10 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#aTitre"/>
-        <Class IRI="#Chanson"/>
+        <ObjectUnionOf>
+            <Class IRI="#Album"/>
+            <Class IRI="#Chanson"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyRange>
         <DataProperty IRI="#aDateDébut"/>
@@ -1907,11 +1945,11 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>Nombre de fois où une femme joue dans un groupe</Literal>
+            <Literal>Nombre de fois où une femme a participé dans un groupe</Literal>
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>S2</Literal>
+            <Literal>10</Literal>
         </Annotation>
         <Body>
             <ClassAtom>
@@ -1942,47 +1980,11 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>Nom musicien et du groupe</Literal>
+            <Literal>Nom du musicien et du groupe auquel il appartient</Literal>
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>S1</Literal>
-        </Annotation>
-        <Body>
-            <ClassAtom>
-                <Class IRI="#Musicien"/>
-                <Variable IRI="#m"/>
-            </ClassAtom>
-            <ObjectPropertyAtom>
-                <ObjectProperty IRI="#participeDansGroupe"/>
-                <Variable IRI="#m"/>
-                <Variable IRI="#p"/>
-            </ObjectPropertyAtom>
-            <ObjectPropertyAtom>
-                <ObjectProperty IRI="#aGroupe"/>
-                <Variable IRI="#p"/>
-                <Variable IRI="#g"/>
-            </ObjectPropertyAtom>
-        </Body>
-        <Head>
-            <BuiltInAtom IRI="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#select">
-                <Variable IRI="#m"/>
-                <Variable IRI="#g"/>
-            </BuiltInAtom>
-        </Head>
-    </DLSafeRule>
-    <DLSafeRule>
-        <Annotation>
-            <AnnotationProperty IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
-            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
-        </Annotation>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal></Literal>
-        </Annotation>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>S3</Literal>
+            <Literal>9</Literal>
         </Annotation>
         <Body>
             <ClassAtom>

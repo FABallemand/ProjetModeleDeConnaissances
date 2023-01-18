@@ -25,13 +25,14 @@ WHERE { ?titre rdf:type ch:Chanson .
 
 2. [OK]  
 ```
-SELECT ?a
-WHERE { ?a ch:contientChanson ?c .
-        ?c ch:aTitre ?t
-        FILTER ( ?t = "Smells Like Teen Spirit" ) }
+SELECT ?titre_album
+WHERE { ?album ch:contientChanson ?chanson .
+        ?chanson ch:aTitre ?titre_chanson .
+        ?album ch:aTitre ?titre_album 
+        FILTER ( ?titre_chanson = "Smells Like Teen Spirit" ) }
 ```
 
-La requête suivante ne vérifie pas la valeur du titre...
+La requête suivante ne vérifie pas la valeur des titres -> PAS BIEN
 ```
 SELECT ?a
     WHERE { ?a ch:contientChanson ch:Smells_Like_Teen_Spirit }
@@ -71,6 +72,15 @@ WHERE { ?c ch:estDansAlbum ?a .
         ?a ch:publiePar ch:Nirvana }
 ```
 
+Pour tester:
+```
+SELECT ?c
+WHERE { ?c ch:estDansAlbum ?a .
+        ?a ch:publiePar ?g .
+        ?g ch:aNomDeGroupe ?n
+        FILTER (?n = "Nirvana" ) }
+```
+
 5. [OK]  
 ```
 SELECT ?c ?t
@@ -94,13 +104,30 @@ WHERE { ?c ch:aTypeDeMusique ?t .
 
 6. [OK]  
 ```
-SELECT ?r ?gom ?a # ?gom: groupe ou musicien
-WHERE { ?gom ch:aRécompense ?r .
-	?r ch:aDateRécompense ?a
+SELECT ?nr ?gom ?a # ?gom: groupe ou musicien
+WHERE { ?gom ch:aRécompense_Artiste ?att . # ?Att: attributionRécompense
+	?att ch:aDateRécompense ?a .
+        ?att ch:aRécompense ?r .
+        ?r ch:aNomRécompense ?nr
         { ?gom rdf:type ch:Musicien}
         union # Union pour distinguer les types (un album peut aussi obtenir une récompense)
         { ?gom rdf:type ch:Groupe}
-        FILTER (?a = 2022 || ?a = 2023)
+        FILTER (?a = 2014 || ?a = 2015)
+}
+ORDER BY ?gom # Pour une meilleure lisibilité
+```
+
+Sans la classe intermédiaire **AttributionRécompense**, on AURAIT pu choisir d'attribuer des récompenses aux **Musicien**, aux **Groupe** et aux **Album**. On AURAIT alors du exclure les **Album** en faisant une union.
+```
+SELECT ?nr ?gom ?a # ?gom: groupe ou musicien
+WHERE { ?gom ch:aRécompense_Artiste ?att . # ?att: attributionRécompense
+	?att ch:aDateRécompense ?a .
+        ?att ch:aRécompense ?r .
+        ?r ch:aNomRécompense ?nr
+        { ?gom rdf:type ch:Musicien}
+        union # Union pour distinguer les types (un album peut aussi obtenir une récompense)
+        { ?gom rdf:type ch:Groupe}
+        FILTER (?a = 2014 || ?a = 2015)
 }
 ```
 
@@ -118,7 +145,7 @@ HAVING (?count < 4) # Conserver les groupes dont le résultat est inférieur à 
 SELECT ?n
 WHERE { ?m ch:aNom ?n .
         FILTER regex(?n, "^c", "i")} # "^c": commence par c | "i": Insensible à la casse
-ORDER BY ?n
+ORDER BY ?n # Tir par ordre alphabétique
 ```
 
 9. [OK]  
@@ -126,7 +153,7 @@ ORDER BY ?n
 Musicien(?m) ^ participeDansGroupe(?m, ?p) ^ aGroupe(?p, ?g) ^ aNom(?m, ?n) ^ aNomDeGroupe(?g, ?ng) -> sqwrl:select(?n, ?ng)
 ```
 
-La requête suivante ne travaille pas sur le nom du groupe...
+La requête suivante ne travaille pas sur le nom du groupe -> PAS BIEN
 ```
 Musicien(?m) ^ participeDansGroupe(?m, ?p) ^ aGroupe(?p, ?g) -> sqwrl:select(?m, ?g)
 ```
