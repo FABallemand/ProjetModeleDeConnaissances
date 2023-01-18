@@ -20,6 +20,9 @@
         <Class IRI="#Americain"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#AttributionRécompense"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Auteur"/>
     </Declaration>
     <Declaration>
@@ -54,6 +57,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#DansPlusieursGroupes"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DansUnGroupe"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Genre"/>
@@ -149,7 +155,16 @@
         <ObjectProperty IRI="#aRécompense"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#aRécompense_Artiste"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#aRécompense_Oeuvre"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#aTypeDeMusique"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#artisteRécompensé"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#contientChanson"/>
@@ -173,13 +188,22 @@
         <ObjectProperty IRI="#publiePar"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#récompenséPour"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="http://xmlns.com/foaf/0.1/membershipClass"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#aDateDébut"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#aDateDébutRécompense"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#aDateFin"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#aDateFinRécompense"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#aDatePublication"/>
@@ -194,6 +218,9 @@
         <DataProperty IRI="#aNomDeGroupe"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#aNomRécompense"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#aPrénom"/>
     </Declaration>
     <Declaration>
@@ -206,7 +233,13 @@
         <NamedIndividual IRI="#Alain_Souchon_et_Laurent_Voulzy"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#AlbumDeChansonsDeLAnnee"/>
+        <NamedIndividual IRI="#Alain_Voulzy_ACA_2015"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Alain_Voulzy_MIMA_2015"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AlbumDeChansonsDeLAnnée"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Américain"/>
@@ -249,6 +282,12 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Femme"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Foo_Fighters"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Foo_Fighters_DG"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Francais"/>
@@ -354,6 +393,15 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Stromae"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Stromae_ACA_2014"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Stromae_Diamant_2014"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Stromae_MIMA_2014"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Suédois"/>
@@ -456,6 +504,26 @@
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
+        <Class IRI="#DansPlusieursGroupes"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Musicien"/>
+            <ObjectMinCardinality cardinality="2">
+                <ObjectProperty IRI="#participeDansGroupe"/>
+                <Class IRI="#ParticipationDansGroupe"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#DansUnGroupe"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Musicien"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="#participeDansGroupe"/>
+                <Class IRI="#ParticipationDansGroupe"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
         <Class IRI="#GroupeMixte"/>
         <ObjectIntersectionOf>
             <Class IRI="#Groupe"/>
@@ -493,16 +561,12 @@
         <ObjectIntersectionOf>
             <Class IRI="#Musicien"/>
             <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#estInterpreteDe"/>
+                <ObjectProperty IRI="#aRécompense_Artiste"/>
                 <ObjectHasValue>
                     <ObjectProperty IRI="#aRécompense"/>
                     <NamedIndividual IRI="#Diamant"/>
                 </ObjectHasValue>
             </ObjectSomeValuesFrom>
-            <ObjectHasValue>
-                <ObjectProperty IRI="#aNationalité"/>
-                <NamedIndividual IRI="#Francais"/>
-            </ObjectHasValue>
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -536,7 +600,7 @@
                 </ObjectMaxCardinality>
             </ObjectAllValuesFrom>
             <ObjectMaxCardinality cardinality="0">
-                <ObjectProperty IRI="#aGroupe"/>
+                <ObjectProperty IRI="#participeDansGroupe"/>
                 <Class IRI="#Groupe"/>
             </ObjectMaxCardinality>
         </ObjectIntersectionOf>
@@ -545,32 +609,10 @@
         <Class IRI="#TrèsRécomponsé"/>
         <ObjectIntersectionOf>
             <Class IRI="#Musicien"/>
-            <ObjectUnionOf>
-                <ObjectIntersectionOf>
-                    <ObjectMinCardinality cardinality="2">
-                        <ObjectProperty IRI="#aRécompense"/>
-                        <Class IRI="#Récompense"/>
-                    </ObjectMinCardinality>
-                    <ObjectMinCardinality cardinality="1">
-                        <ObjectProperty IRI="#estInterpreteDe"/>
-                        <ObjectSomeValuesFrom>
-                            <ObjectProperty IRI="#aRécompense"/>
-                            <Class IRI="#Récompense"/>
-                        </ObjectSomeValuesFrom>
-                    </ObjectMinCardinality>
-                </ObjectIntersectionOf>
-                <ObjectMinCardinality cardinality="3">
-                    <ObjectProperty IRI="#aRécompense"/>
-                    <Class IRI="#Récompense"/>
-                </ObjectMinCardinality>
-                <ObjectMinCardinality cardinality="3">
-                    <ObjectProperty IRI="#estInterpreteDe"/>
-                    <ObjectSomeValuesFrom>
-                        <ObjectProperty IRI="#aRécompense"/>
-                        <Class IRI="#Récompense"/>
-                    </ObjectSomeValuesFrom>
-                </ObjectMinCardinality>
-            </ObjectUnionOf>
+            <ObjectMinCardinality cardinality="3">
+                <ObjectProperty IRI="#aRécompense_Artiste"/>
+                <Class IRI="#AttributionRécompense"/>
+            </ObjectMinCardinality>
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <SubClassOf>
@@ -588,17 +630,6 @@
     <SubClassOf>
         <Class IRI="#Cérémonie"/>
         <Class IRI="#Récompense"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#DansPlusieursGroupes"/>
-        <Class IRI="#Musicien"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#DansPlusieursGroupes"/>
-        <ObjectMinCardinality cardinality="2">
-            <ObjectProperty IRI="#aGroupe"/>
-            <Class IRI="#Groupe"/>
-        </ObjectMinCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Groupe"/>
@@ -628,26 +659,20 @@
         <NamedIndividual IRI="#Alain_Souchon"/>
     </ClassAssertion>
     <ClassAssertion>
-        <ObjectHasValue>
-            <ObjectProperty IRI="#aGenre"/>
-            <NamedIndividual IRI="#Homme"/>
-        </ObjectHasValue>
-        <NamedIndividual IRI="#Alain_Souchon"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <ObjectHasValue>
-            <ObjectProperty IRI="#aNationalité"/>
-            <NamedIndividual IRI="#Francais"/>
-        </ObjectHasValue>
-        <NamedIndividual IRI="#Alain_Souchon"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Album"/>
         <NamedIndividual IRI="#Alain_Souchon_et_Laurent_Voulzy"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#AttributionRécompense"/>
+        <NamedIndividual IRI="#Alain_Voulzy_ACA_2015"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AttributionRécompense"/>
+        <NamedIndividual IRI="#Alain_Voulzy_MIMA_2015"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Récompense"/>
-        <NamedIndividual IRI="#AlbumDeChansonsDeLAnnee"/>
+        <NamedIndividual IRI="#AlbumDeChansonsDeLAnnée"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Nationalité"/>
@@ -704,6 +729,14 @@
     <ClassAssertion>
         <Class IRI="#Genre"/>
         <NamedIndividual IRI="#Femme"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Groupe"/>
+        <NamedIndividual IRI="#Foo_Fighters"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ParticipationDansGroupe"/>
+        <NamedIndividual IRI="#Foo_Fighters_DG"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Nationalité"/>
@@ -846,6 +879,18 @@
         <NamedIndividual IRI="#Stromae"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#AttributionRécompense"/>
+        <NamedIndividual IRI="#Stromae_ACA_2014"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AttributionRécompense"/>
+        <NamedIndividual IRI="#Stromae_Diamant_2014"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AttributionRécompense"/>
+        <NamedIndividual IRI="#Stromae_MIMA_2014"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Nationalité"/>
         <NamedIndividual IRI="#Suédois"/>
     </ClassAssertion>
@@ -874,6 +919,21 @@
         <NamedIndividual IRI="#WebSémantique"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aGenre"/>
+        <NamedIndividual IRI="#Alain_Souchon"/>
+        <NamedIndividual IRI="#Homme"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aNationalité"/>
+        <NamedIndividual IRI="#Alain_Souchon"/>
+        <NamedIndividual IRI="#Francais"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aRécompense_Artiste"/>
+        <NamedIndividual IRI="#Alain_Souchon"/>
+        <NamedIndividual IRI="#Alain_Voulzy_ACA_2015"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#publiePar"/>
         <NamedIndividual IRI="#Alain_Souchon_et_Laurent_Voulzy"/>
         <NamedIndividual IRI="#Alain_Souchon"/>
@@ -881,6 +941,41 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#publiePar"/>
         <NamedIndividual IRI="#Alain_Souchon_et_Laurent_Voulzy"/>
+        <NamedIndividual IRI="#Laurent_Voulzy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aRécompense"/>
+        <NamedIndividual IRI="#Alain_Voulzy_ACA_2015"/>
+        <NamedIndividual IRI="#AlbumDeChansonsDeLAnnée"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#artisteRécompensé"/>
+        <NamedIndividual IRI="#Alain_Voulzy_ACA_2015"/>
+        <NamedIndividual IRI="#Alain_Souchon"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#artisteRécompensé"/>
+        <NamedIndividual IRI="#Alain_Voulzy_ACA_2015"/>
+        <NamedIndividual IRI="#Laurent_Voulzy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#récompenséPour"/>
+        <NamedIndividual IRI="#Alain_Voulzy_ACA_2015"/>
+        <NamedIndividual IRI="#Alain_Souchon_et_Laurent_Voulzy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aRécompense"/>
+        <NamedIndividual IRI="#Alain_Voulzy_MIMA_2015"/>
+        <NamedIndividual IRI="#MeilleurInterprèteMasculinDeLAnnée"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#artisteRécompensé"/>
+        <NamedIndividual IRI="#Alain_Voulzy_MIMA_2015"/>
+        <NamedIndividual IRI="#Alain_Souchon"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#artisteRécompensé"/>
+        <NamedIndividual IRI="#Alain_Voulzy_MIMA_2015"/>
         <NamedIndividual IRI="#Laurent_Voulzy"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -902,6 +997,11 @@
         <ObjectProperty IRI="#aNationalité"/>
         <NamedIndividual IRI="#Dave_Grohl"/>
         <NamedIndividual IRI="#Américain"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#participeDansGroupe"/>
+        <NamedIndividual IRI="#Dave_Grohl"/>
+        <NamedIndividual IRI="#Foo_Fighters_DG"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#participeDansGroupe"/>
@@ -934,9 +1034,24 @@
         <NamedIndividual IRI="#SDIA_FA"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#aRécompense"/>
-        <NamedIndividual IRI="#IR"/>
-        <NamedIndividual IRI="#MeilleurGroupeInfo"/>
+        <ObjectProperty IRI="#aMembre"/>
+        <NamedIndividual IRI="#Foo_Fighters"/>
+        <NamedIndividual IRI="#Foo_Fighters_DG"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aGroupe"/>
+        <NamedIndividual IRI="#Foo_Fighters_DG"/>
+        <NamedIndividual IRI="#Foo_Fighters"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aMusicien"/>
+        <NamedIndividual IRI="#Foo_Fighters_DG"/>
+        <NamedIndividual IRI="#Dave_Grohl"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aRoleDansGroupe"/>
+        <NamedIndividual IRI="#Foo_Fighters_DG"/>
+        <NamedIndividual IRI="#Guitariste"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#aGroupe"/>
@@ -997,6 +1112,11 @@
         <ObjectProperty IRI="#aNationalité"/>
         <NamedIndividual IRI="#Laurent_Voulzy"/>
         <NamedIndividual IRI="#Francais"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aRécompense_Artiste"/>
+        <NamedIndividual IRI="#Laurent_Voulzy"/>
+        <NamedIndividual IRI="#Alain_Voulzy_ACA_2015"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#aGenre"/>
@@ -1069,6 +1189,11 @@
         <NamedIndividual IRI="#Nirvana"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aMusicien"/>
+        <NamedIndividual IRI="#Nirvana_DG"/>
+        <NamedIndividual IRI="#Dave_Grohl"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#aRoleDansGroupe"/>
         <NamedIndividual IRI="#Nirvana_DG"/>
         <NamedIndividual IRI="#Batteur"/>
@@ -1129,16 +1254,6 @@
         <NamedIndividual IRI="#WebSémantique"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#aRécompense"/>
-        <NamedIndividual IRI="#Racine_Carré"/>
-        <NamedIndividual IRI="#AlbumDeChansonsDeLAnnee"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#aRécompense"/>
-        <NamedIndividual IRI="#Racine_Carré"/>
-        <NamedIndividual IRI="#Diamant"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#aMembre"/>
         <NamedIndividual IRI="#SDIA"/>
         <NamedIndividual IRI="#SDIA_FA"/>
@@ -1159,14 +1274,14 @@
         <NamedIndividual IRI="#WebSémantique"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#aRécompense"/>
-        <NamedIndividual IRI="#SDIA"/>
-        <NamedIndividual IRI="#MeilleurGroupeIA"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#aGroupe"/>
         <NamedIndividual IRI="#SDIA_FA"/>
         <NamedIndividual IRI="#SDIA"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aMusicien"/>
+        <NamedIndividual IRI="#SDIA_FA"/>
+        <NamedIndividual IRI="#Fabien_Allemand"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#aRoleDansGroupe"/>
@@ -1204,19 +1319,69 @@
         <NamedIndividual IRI="#Never_Mind"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aGenre"/>
+        <NamedIndividual IRI="#Stromae"/>
+        <NamedIndividual IRI="#Homme"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#aNationalité"/>
         <NamedIndividual IRI="#Stromae"/>
         <NamedIndividual IRI="#Belge"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#aRécompense"/>
+        <ObjectProperty IRI="#aRécompense_Artiste"/>
         <NamedIndividual IRI="#Stromae"/>
-        <NamedIndividual IRI="#MeilleurInterprèteMasculinDeLAnnée"/>
+        <NamedIndividual IRI="#Stromae_ACA_2014"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aRécompense_Artiste"/>
+        <NamedIndividual IRI="#Stromae"/>
+        <NamedIndividual IRI="#Stromae_Diamant_2014"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#estInterpreteDe"/>
         <NamedIndividual IRI="#Stromae"/>
         <NamedIndividual IRI="#Racine_Carré"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aRécompense"/>
+        <NamedIndividual IRI="#Stromae_ACA_2014"/>
+        <NamedIndividual IRI="#AlbumDeChansonsDeLAnnée"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#artisteRécompensé"/>
+        <NamedIndividual IRI="#Stromae_ACA_2014"/>
+        <NamedIndividual IRI="#Stromae"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#récompenséPour"/>
+        <NamedIndividual IRI="#Stromae_ACA_2014"/>
+        <NamedIndividual IRI="#Racine_Carré"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aRécompense"/>
+        <NamedIndividual IRI="#Stromae_Diamant_2014"/>
+        <NamedIndividual IRI="#MeilleurInterprèteMasculinDeLAnnée"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#artisteRécompensé"/>
+        <NamedIndividual IRI="#Stromae_Diamant_2014"/>
+        <NamedIndividual IRI="#Stromae"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#récompenséPour"/>
+        <NamedIndividual IRI="#Stromae_Diamant_2014"/>
+        <NamedIndividual IRI="#Racine_Carré"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#aRécompense"/>
+        <NamedIndividual IRI="#Stromae_MIMA_2014"/>
+        <NamedIndividual IRI="#MeilleurInterprèteMasculinDeLAnnée"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#artisteRécompensé"/>
+        <NamedIndividual IRI="#Stromae_MIMA_2014"/>
+        <NamedIndividual IRI="#Stromae"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#aInterprete"/>
@@ -1254,16 +1419,6 @@
         <NamedIndividual IRI="#SDIA"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#aRécompense"/>
-        <NamedIndividual IRI="#WebSémantique"/>
-        <NamedIndividual IRI="#Diamant"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#aRécompense"/>
-        <NamedIndividual IRI="#WebSémantique"/>
-        <NamedIndividual IRI="#MeilleurCoursDuSemestre"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#publiePar"/>
         <NamedIndividual IRI="#WebSémantique"/>
         <NamedIndividual IRI="#SDIA"/>
@@ -1275,8 +1430,28 @@
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#aDateRécompense"/>
-        <NamedIndividual IRI="#AlbumDeChansonsDeLAnnee"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2014</Literal>
+        <NamedIndividual IRI="#Alain_Voulzy_ACA_2015"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2015</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aDateRécompense"/>
+        <NamedIndividual IRI="#Alain_Voulzy_MIMA_2015"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2015</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aDateFinRécompense"/>
+        <NamedIndividual IRI="#AlbumDeChansonsDeLAnnée"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2019</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aNomRécompense"/>
+        <NamedIndividual IRI="#AlbumDeChansonsDeLAnnée"/>
+        <Literal>Album de chansons de l&apos;année</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aNomRécompense"/>
+        <NamedIndividual IRI="#Argent"/>
+        <Literal>Argent</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#aNom"/>
@@ -1284,9 +1459,34 @@
         <Literal>Grohl</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#aPrénom"/>
+        <NamedIndividual IRI="#Dave_Grohl"/>
+        <Literal>Dave</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aNomRécompense"/>
+        <NamedIndividual IRI="#Diamant"/>
+        <Literal>Diamant</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#aNom"/>
         <NamedIndividual IRI="#Fabien_Allemand"/>
         <Literal>Allemand</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aNomDeGroupe"/>
+        <NamedIndividual IRI="#Foo_Fighters"/>
+        <Literal>Foo Fighters</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aDateDébut"/>
+        <NamedIndividual IRI="#Foo_Fighters_DG"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aDateFin"/>
+        <NamedIndividual IRI="#Foo_Fighters_DG"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2005</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#aNomDeGroupe"/>
@@ -1314,29 +1514,49 @@
         <Literal>Couture</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="#aDateRécompense"/>
+        <DataProperty IRI="#aNomRécompense"/>
         <NamedIndividual IRI="#MeilleurCoursDuSemestre"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2022</Literal>
+        <Literal>Meilleur cours du semestre</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="#aDateRécompense"/>
+        <DataProperty IRI="#aNomRécompense"/>
         <NamedIndividual IRI="#MeilleurGroupeIA"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2023</Literal>
+        <Literal>Meilleur groupe IA</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="#aDateRécompense"/>
+        <DataProperty IRI="#aNomRécompense"/>
         <NamedIndividual IRI="#MeilleurGroupeInfo"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2022</Literal>
+        <Literal>Meilleur groupe info</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="#aDateRécompense"/>
+        <DataProperty IRI="#aNomRécompense"/>
         <NamedIndividual IRI="#MeilleurInterprèteMasculinDeLAnnée"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2014</Literal>
+        <Literal>Meilleur interprète masculin de l&apos;année</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#aNomDeGroupe"/>
         <NamedIndividual IRI="#Nirvana"/>
         <Literal>Nirvana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aDateDébut"/>
+        <NamedIndividual IRI="#Nirvana_DG"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">1990</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aDateDébut"/>
+        <NamedIndividual IRI="#Nirvana_DG"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aNomRécompense"/>
+        <NamedIndividual IRI="#Or"/>
+        <Literal>Or</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aNomRécompense"/>
+        <NamedIndividual IRI="#Platine"/>
+        <Literal>Platine</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#aTitre"/>
@@ -1379,6 +1599,21 @@
         <Literal>Smells Like Teen Spirit</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#aDateRécompense"/>
+        <NamedIndividual IRI="#Stromae_ACA_2014"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2014</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aDateRécompense"/>
+        <NamedIndividual IRI="#Stromae_Diamant_2014"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2014</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#aDateRécompense"/>
+        <NamedIndividual IRI="#Stromae_MIMA_2014"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">2014</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#aTitre"/>
         <NamedIndividual IRI="#TheFundamentalMatrixSong"/>
         <Literal>The Fundamental Matrix Song</Literal>
@@ -1415,6 +1650,14 @@
     <InverseObjectProperties>
         <ObjectProperty IRI="#aPublié"/>
         <ObjectProperty IRI="#publiePar"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#aRécompense_Artiste"/>
+        <ObjectProperty IRI="#artisteRécompensé"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#aRécompense_Oeuvre"/>
+        <ObjectProperty IRI="#récompenséPour"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#contientChanson"/>
@@ -1467,11 +1710,20 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#aRécompense"/>
+        <Class IRI="#AttributionRécompense"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#aRécompense_Artiste"/>
+        <ObjectUnionOf>
+            <Class IRI="#Groupe"/>
+            <Class IRI="#Musicien"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#aRécompense_Oeuvre"/>
         <ObjectUnionOf>
             <Class IRI="#Album"/>
             <Class IRI="#Chanson"/>
-            <Class IRI="#Groupe"/>
-            <Class IRI="#Musicien"/>
         </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
@@ -1534,6 +1786,14 @@
         <Class IRI="#Récompense"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#aRécompense_Artiste"/>
+        <Class IRI="#AttributionRécompense"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#aRécompense_Oeuvre"/>
+        <Class IRI="#AttributionRécompense"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#aTypeDeMusique"/>
         <Class IRI="#TypeDeMusique"/>
     </ObjectPropertyRange>
@@ -1557,8 +1817,16 @@
         <Class IRI="#ParticipationDansGroupe"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
+        <DataProperty IRI="#aDateDébutRécompense"/>
+        <Class IRI="#Récompense"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="#aDateFin"/>
         <Class IRI="#ParticipationDansGroupe"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#aDateFinRécompense"/>
+        <Class IRI="#Récompense"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#aDatePublication"/>
@@ -1566,7 +1834,7 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#aDateRécompense"/>
-        <Class IRI="#Récompense"/>
+        <Class IRI="#AttributionRécompense"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#aNom"/>
@@ -1575,6 +1843,10 @@
     <DataPropertyDomain>
         <DataProperty IRI="#aNomDeGroupe"/>
         <Class IRI="#Groupe"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#aNomRécompense"/>
+        <Class IRI="#Récompense"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#aPrénom"/>
@@ -1589,7 +1861,15 @@
         <Datatype abbreviatedIRI="xsd:int"/>
     </DataPropertyRange>
     <DataPropertyRange>
+        <DataProperty IRI="#aDateDébutRécompense"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
         <DataProperty IRI="#aDateFin"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#aDateFinRécompense"/>
         <Datatype abbreviatedIRI="xsd:int"/>
     </DataPropertyRange>
     <DataPropertyRange>
@@ -1606,6 +1886,10 @@
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#aNomDeGroupe"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#aNomRécompense"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
@@ -1747,6 +2031,11 @@
         <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
         <IRI>#TypeDeMusique</IRI>
         <Literal datatypeIRI="http://www.w3.org/2000/01/rdf-schema#Literal">Type de musique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#aDateFinRécompense</IRI>
+        <Literal>Dernière date d&apos;attribution d&apos;une récompense</Literal>
     </AnnotationAssertion>
 </Ontology>
 
